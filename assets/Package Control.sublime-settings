@@ -1,0 +1,33 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	"AutoHotkey"
+	],
+	"installed_packages":
+	[
+		"Alignment",
+		"All Autocomplete",
+		"AutoHotkey",
+		"BracketHighlighter",
+		"C Improved",
+		"Color Highlighter",
+		"ColorPicker",
+		"CTags",
+		"Emmet",
+		"FileDiffs",
+		"Git",
+		"GitGutter",
+		"INI",
+		"Markdown Extended",
+		"Markdown Preview",
+		"Material Theme",
+		"Package Control",
+		"PowerShell",
+		"Pretty JSON",
+		"SideBarEnhancements",
+		"SublimeLinter",
+		"WordCount"
+	]
+}
+
