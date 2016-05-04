@@ -16,6 +16,9 @@ sudo apt-add-repository ppa:jtaylor/keepass -y
 echo "Adding repo for VeraCrypt"
 sudo add-apt-repository ppa:unit193/encryption -y
 
+echo "Adding repo for Zotero"
+sudo add-apt-repository ppa:smathot/cogscinl -y
+
 sudo apt-get update
 
 # Install programs
@@ -56,6 +59,15 @@ sudo apt-get -y install virtualbox
 echo "Installing Double Commander"
 sudo apt-get -y install doublecmd-gtk
 
+echo "Installing powertop"
+sudo apt-get -y install powertop
+
+echo "Installing openvpn"
+sudo apt-get -y install openvpn
+
+echo "Installing Zotero"
+sudo apt-get -y install zotero-standalone
+
 
 #############################
 ### Sublime Text Settings ###
@@ -73,3 +85,22 @@ cp ./assets/Package\ Control.sublime-settings ~/.config/sublime-text-3/Packages/
 cp ./assets/Preferences.sublime-settings ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
 
 echo "sublime text 3 configuring done"
+
+echo "Installing Vagrant version 1.8.1"
+wget https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.deb -P auto-downloads
+
+sudo dpkg -i ./auto-downloads/vagrant_1.8.1_x86_64.deb
+
+echo "Installing ChefDK version 0.10.0"
+wget https://packages.chef.io/stable/debian/6/chefdk_0.10.0-1_amd64.deb -P auto-downloads
+
+sudo dpkg -i ./auto-downloads/chefdk_0.10.0-1_amd64.deb
+
+echo "Installing vagrant-omnibus"
+vagrant plugin install vagrant-omnibus
+
+echo "Installing berkshelf"
+chef gem install berkshelf
+
+echo "Installing VirtualBox guest additions iso"
+sudo apt-get -y install -y virtualbox-guest-additions-iso
