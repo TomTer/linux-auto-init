@@ -68,11 +68,21 @@ sudo apt-get -y install openvpn
 echo "Installing Zotero"
 sudo apt-get -y install zotero-standalone
 
+echo "Saving touchegg settings"
+synclient TapButton2=0
+synclient TapButton3=0
+synclient ClickFinger2=3
+synclient ClickFinger3=0
+synclient HorizTwoFingerScroll=1
+synclient VertTwoFingerScroll=1
+
+cp ./assets/touchegg.conf ~/.config/touchegg/
 
 #############################
 ### Sublime Text Settings ###
 #############################
 
+echo "Saving sublime text 3 settings"
 echo "open sublime to initialize filepaths"
 subl
 
