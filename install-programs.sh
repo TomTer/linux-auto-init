@@ -35,7 +35,7 @@ echo "Installing git"
 sudo apt-get -y install git
 
 echo "Compiling touchegg-gce"
-sudo apt-get -y install build-essential libqt4-dev libx11-6 libx11-dev
+sudo apt-get -y install build-essential libqt4-dev libx11-6 libx11-dev libssl-dev
 sudo apt-get -y install wget
 mkdir auto-downloads && cd auto-downloads
 git clone https://github.com/Raffarti/Touchegg-gce.git
@@ -43,6 +43,7 @@ cd Touchegg-gce
 mkdir build && cd build
 sudo qmake ..
 sudo make && make install
+cd ../..
 
 echo "Installing Chromium"
 sudo apt-get -y install chromium-browser
@@ -114,3 +115,42 @@ chef gem install berkshelf
 
 echo "Installing VirtualBox guest additions iso"
 sudo apt-get -y install -y virtualbox-guest-additions-iso
+
+echo "Installing chef gems"
+chef gem install knife-solo
+chef gem install knife-solo_data_bag
+chef gem install knife-ec2
+
+echo "Installing smartgit"
+wget http://www.syntevo.com/static/smart/download/smartgit/smartgit-linux-7_1_3.tar.gz -P auto-downloads
+tar -xzf ./auto-downloads/smartgit-linux-7_1_3.tar.gz -C ./auto-downloads
+sudo mv ./auto-downloads/smartgit /opt/
+
+echo "Installing Firefox Dev"
+wget https://download-installer.cdn.mozilla.net/pub/firefox/nightly/latest-mozilla-aurora/firefox-48.0a2.en-US.linux-x86_64.tar.bz2 -P auto-downloads
+tar -jxf ./auto-downloads/firefox-48.0a2.en-US.linux-x86_64.tar.bz2 -C ./auto-downloads
+mv ./auto-downloads/firefox ./auto-downloads/firefox-dev
+sudo mv ./auto-downloads/firefox-dev /opt/
+
+echo "Installing Webstorm EAP"
+wget http://download.jetbrains.com/webstorm/WebStorm-EAP-145.969.8.tar.gz -P auto-downloads
+tar -xzf ./auto-downloads/WebStorm-EAP-145.969.8.tar.gz -C ./auto-downloads
+sudo mv ./auto-downloads/WebStorm-145.969.8 /opt/WebStorm-EAP
+
+echo "Installing sshfs"
+sudo apt -y install sshfs
+
+echo "Installing Nodejs version manager"
+wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
+nvm i 6
+nvm use 6
+
+
+# ON MAC
+# sudo apt-get install efibootmgr
+# sudo efibootmgr
+# sudo efibootmgr -o 0,80
+# http://stackoverflow.com/questions/25000934/trouble-with-dual-boot-ubuntu-after-update-mac-os-yosemite
+
+# SHOW GRUB
+# http://askubuntu.com/questions/16042/how-to-get-to-the-grub-menu-at-boot-time
