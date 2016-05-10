@@ -41,9 +41,10 @@ mkdir auto-downloads && cd auto-downloads
 git clone https://github.com/Raffarti/Touchegg-gce.git
 cd Touchegg-gce
 mkdir build && cd build
-sudo qmake ..
-sudo make && make install
-cd ../..
+qmake ..
+sudo make
+sudo make install
+cd ../../..
 
 echo "Installing Chromium"
 sudo apt-get -y install chromium-browser
@@ -142,6 +143,7 @@ sudo apt -y install sshfs
 
 echo "Installing Nodejs version manager"
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
+~/.nvm/nvm.sh
 nvm i 6
 nvm use 6
 
